@@ -1,9 +1,9 @@
 //
 //  AppDelegate.m
-//  OTScreenshotHelperDemo
+//  OTNotificationViewDemo
 //
-//  Created by openthread on 8/13/13.
-//  Copyright (c) 2013 openthread. All rights reserved.
+//  Created by openthread on 8/9/13.
+//
 //
 
 #import "AppDelegate.h"
@@ -17,12 +17,18 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil];
+        self.viewController = [[ViewController alloc] init];
     } else {
-        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil];
+        self.viewController = [[ViewController alloc] init];
     }
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGAffineTransform t = CGAffineTransformMakeRotation(M_PI_2 / 3);
+    t = CGAffineTransformScale(t, 0.8, 0.8);
+    self.window.transform = t;
+    self.window.center = CGPointMake(CGRectGetWidth(screenRect) / 2 + 50, CGRectGetHeight(screenRect) / 2 + 40);
     return YES;
 }
 
@@ -34,7 +40,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 

@@ -17,8 +17,10 @@
 		42F4437A17BA2D6200C384F1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42F4437917BA2D6200C384F1 /* Default@2x.png */; };
 		42F4437C17BA2D6200C384F1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42F4437B17BA2D6200C384F1 /* Default-568h@2x.png */; };
 		42F4437F17BA2D6200C384F1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4437E17BA2D6200C384F1 /* ViewController.m */; };
-		42F4438217BA2D6200C384F1 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42F4438017BA2D6200C384F1 /* ViewController_iPhone.xib */; };
-		42F4438517BA2D6200C384F1 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42F4438317BA2D6200C384F1 /* ViewController_iPad.xib */; };
+		42F4439417BA315800C384F1 /* ComOpenThreadOTScreenshotHelperSwizzleHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4438E17BA315800C384F1 /* ComOpenThreadOTScreenshotHelperSwizzleHelper.m */; };
+		42F4439517BA315800C384F1 /* UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4439017BA315800C384F1 /* UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.m */; };
+		42F4439617BA315800C384F1 /* OTScreenshotHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4439317BA315800C384F1 /* OTScreenshotHelper.m */; };
+		42F4439817BA316200C384F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F4439717BA316200C384F1 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,8 +39,13 @@
 		42F4437B17BA2D6200C384F1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		42F4437D17BA2D6200C384F1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		42F4437E17BA2D6200C384F1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		42F4438117BA2D6200C384F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
-		42F4438417BA2D6200C384F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		42F4438D17BA315800C384F1 /* ComOpenThreadOTScreenshotHelperSwizzleHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComOpenThreadOTScreenshotHelperSwizzleHelper.h; sourceTree = "<group>"; };
+		42F4438E17BA315800C384F1 /* ComOpenThreadOTScreenshotHelperSwizzleHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComOpenThreadOTScreenshotHelperSwizzleHelper.m; sourceTree = "<group>"; };
+		42F4438F17BA315800C384F1 /* UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.h"; sourceTree = "<group>"; };
+		42F4439017BA315800C384F1 /* UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.m"; sourceTree = "<group>"; };
+		42F4439217BA315800C384F1 /* OTScreenshotHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTScreenshotHelper.h; sourceTree = "<group>"; };
+		42F4439317BA315800C384F1 /* OTScreenshotHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTScreenshotHelper.m; sourceTree = "<group>"; };
+		42F4439717BA316200C384F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42F4439817BA316200C384F1 /* QuartzCore.framework in Frameworks */,
 				42F4436617BA2D6200C384F1 /* UIKit.framework in Frameworks */,
 				42F4436817BA2D6200C384F1 /* Foundation.framework in Frameworks */,
 				42F4436A17BA2D6200C384F1 /* CoreGraphics.framework in Frameworks */,
@@ -58,7 +66,9 @@
 		42F4435917BA2D6200C384F1 = {
 			isa = PBXGroup;
 			children = (
+				42F4439717BA316200C384F1 /* QuartzCore.framework */,
 				42F4436B17BA2D6200C384F1 /* OTScreenshotHelperDemo */,
+				42F4438B17BA315800C384F1 /* OTScreenshotHelper */,
 				42F4436417BA2D6200C384F1 /* Frameworks */,
 				42F4436317BA2D6200C384F1 /* Products */,
 			);
@@ -89,8 +99,6 @@
 				42F4437517BA2D6200C384F1 /* AppDelegate.m */,
 				42F4437D17BA2D6200C384F1 /* ViewController.h */,
 				42F4437E17BA2D6200C384F1 /* ViewController.m */,
-				42F4438017BA2D6200C384F1 /* ViewController_iPhone.xib */,
-				42F4438317BA2D6200C384F1 /* ViewController_iPad.xib */,
 				42F4436C17BA2D6200C384F1 /* Supporting Files */,
 			);
 			path = OTScreenshotHelperDemo;
@@ -108,6 +116,35 @@
 				42F4437B17BA2D6200C384F1 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		42F4438B17BA315800C384F1 /* OTScreenshotHelper */ = {
+			isa = PBXGroup;
+			children = (
+				42F4438C17BA315800C384F1 /* Private */,
+				42F4439117BA315800C384F1 /* Public */,
+			);
+			path = OTScreenshotHelper;
+			sourceTree = "<group>";
+		};
+		42F4438C17BA315800C384F1 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				42F4438D17BA315800C384F1 /* ComOpenThreadOTScreenshotHelperSwizzleHelper.h */,
+				42F4438E17BA315800C384F1 /* ComOpenThreadOTScreenshotHelperSwizzleHelper.m */,
+				42F4438F17BA315800C384F1 /* UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.h */,
+				42F4439017BA315800C384F1 /* UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.m */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		42F4439117BA315800C384F1 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				42F4439217BA315800C384F1 /* OTScreenshotHelper.h */,
+				42F4439317BA315800C384F1 /* OTScreenshotHelper.m */,
+			);
+			path = Public;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,8 +202,6 @@
 				42F4437817BA2D6200C384F1 /* Default.png in Resources */,
 				42F4437A17BA2D6200C384F1 /* Default@2x.png in Resources */,
 				42F4437C17BA2D6200C384F1 /* Default-568h@2x.png in Resources */,
-				42F4438217BA2D6200C384F1 /* ViewController_iPhone.xib in Resources */,
-				42F4438517BA2D6200C384F1 /* ViewController_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +215,9 @@
 				42F4437217BA2D6200C384F1 /* main.m in Sources */,
 				42F4437617BA2D6200C384F1 /* AppDelegate.m in Sources */,
 				42F4437F17BA2D6200C384F1 /* ViewController.m in Sources */,
+				42F4439417BA315800C384F1 /* ComOpenThreadOTScreenshotHelperSwizzleHelper.m in Sources */,
+				42F4439517BA315800C384F1 /* UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.m in Sources */,
+				42F4439617BA315800C384F1 /* OTScreenshotHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,22 +230,6 @@
 				42F4436F17BA2D6200C384F1 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		42F4438017BA2D6200C384F1 /* ViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				42F4438117BA2D6200C384F1 /* en */,
-			);
-			name = ViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		42F4438317BA2D6200C384F1 /* ViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				42F4438417BA2D6200C384F1 /* en */,
-			);
-			name = ViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
