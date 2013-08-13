@@ -139,12 +139,6 @@
     // Iterate over every window from back to front
     for (UIWindow *window in [[UIApplication sharedApplication] windows])
     {
-        if (withStatusBar && window.windowLevel > UIWindowLevelStatusBar && !hasTakenStatusBarScreenshot)
-        {
-            [self mergeStatusBarToContext:context screenshotOrientation:o];
-            hasTakenStatusBarScreenshot = YES;
-        }
-        
         if (![window respondsToSelector:@selector(screen)] || [window screen] == [UIScreen mainScreen])
         {
             // -renderInContext: renders in the coordinate space of the layer,
@@ -169,6 +163,27 @@
             
             // Restore the context
             CGContextRestoreGState(context);
+        }
+        
+        // Screenshot status bar if next window's window level > status bar window level
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        NSUInteger currentWindowIndex = [windows indexOfObject:window];
+        if (windows.count > currentWindowIndex + 1)
+        {
+            UIWindow *nextWindow = [windows objectAtIndex:currentWindowIndex + 1];
+            if (withStatusBar && nextWindow.windowLevel > UIWindowLevelStatusBar && !hasTakenStatusBarScreenshot)
+            {
+                [self mergeStatusBarToContext:context screenshotOrientation:o];
+                hasTakenStatusBarScreenshot = YES;
+            }
+        }
+        else
+        {
+            if (withStatusBar && !hasTakenStatusBarScreenshot)
+            {
+                [self mergeStatusBarToContext:context screenshotOrientation:o];
+                hasTakenStatusBarScreenshot = YES;
+            }
         }
     }
     
