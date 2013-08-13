@@ -119,18 +119,16 @@
             break;
     }
     
-    CGRect newRect = rect;
-    
     // Create a graphics context with the target size
     // On iOS 4 and later, use UIGraphicsBeginImageContextWithOptions to take the scale into consideration
     // On iOS prior to 4, fall back to use UIGraphicsBeginImageContext
     if (NULL != UIGraphicsBeginImageContextWithOptions)
     {
-        UIGraphicsBeginImageContextWithOptions(newRect.size, NO, 0);
+        UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
     }
     else
     {
-        UIGraphicsBeginImageContext(newRect.size);
+        UIGraphicsBeginImageContext(rect.size);
     }
     
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -173,7 +171,7 @@
             UIWindow *nextWindow = [windows objectAtIndex:currentWindowIndex + 1];
             if (withStatusBar && nextWindow.windowLevel > UIWindowLevelStatusBar && !hasTakenStatusBarScreenshot)
             {
-                [self mergeStatusBarToContext:context screenshotOrientation:o];
+                [self mergeStatusBarToContext:context rect:rect screenshotOrientation:o];
                 hasTakenStatusBarScreenshot = YES;
             }
         }
@@ -181,7 +179,7 @@
         {
             if (withStatusBar && !hasTakenStatusBarScreenshot)
             {
-                [self mergeStatusBarToContext:context screenshotOrientation:o];
+                [self mergeStatusBarToContext:context rect:rect screenshotOrientation:o];
                 hasTakenStatusBarScreenshot = YES;
             }
         }
@@ -195,7 +193,9 @@
     return image;
 }
 
-+ (void)mergeStatusBarToContext:(CGContextRef)context screenshotOrientation:(UIInterfaceOrientation)o
++ (void)mergeStatusBarToContext:(CGContextRef)context
+                           rect:(CGRect)rect
+          screenshotOrientation:(UIInterfaceOrientation)o
 {
     UIView *statusBarView = [UIView statusBarInstance_ComOpenThreadOTScreenshotHelper];
     UIInterfaceOrientation statusBarOrientation = [[UIApplication sharedApplication] statusBarOrientation];
