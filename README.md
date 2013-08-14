@@ -4,8 +4,12 @@ Take screenshot on iOS devices with nice interface. Can take status bar. No priv
 
 ![screenshot](https://raw.github.com/OpenFibers/OTScreenshotHelper/master/Screenshots/screenshot1.png "screen shot")
 
-Interface is simple:  
-You can take screen shot with status bar or not, specific a screenshot rect or orientaition.
+#Feature
+
+* Take screen shot with or without status bar.
+* You can specific a screenshot rect or orientaition.
+* Great performance: single graphic context per each screenshot.
+* Simple interface:
 
 ```
 //Get the screenshot of a view.
@@ -23,3 +27,6 @@ You can take screen shot with status bar or not, specific a screenshot rect or o
 //Get the screenshot with rect, you can specific a interface orientation.
 + (UIImage *)screenshotWithStatusBar:(BOOL)withStatusBar rect:(CGRect)rect orientation:(UIInterfaceOrientation)o;
 ```
+
+#Lisence
+MIT.
