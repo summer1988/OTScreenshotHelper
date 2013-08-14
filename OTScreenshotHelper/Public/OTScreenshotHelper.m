@@ -204,49 +204,51 @@
     CGAffineTransform preTransform = CGAffineTransformIdentity;
     if (o == statusBarOrientation)
     {
-        preTransform = CGAffineTransformIdentity;
+        preTransform = CGAffineTransformTranslate(preTransform, -rect.origin.x, -rect.origin.y);
     }
     //Handle status bar orientation in portrait and portrait upside down screen shot
     else if((o == UIInterfaceOrientationPortrait && statusBarOrientation == UIInterfaceOrientationLandscapeLeft) ||
             (o == UIInterfaceOrientationPortraitUpsideDown && statusBarOrientation == UIInterfaceOrientationLandscapeRight))
     {
-        preTransform = CGAffineTransformTranslate(preTransform, 0, screenHeight);
+        preTransform = CGAffineTransformTranslate(preTransform, 0, rect.size.height);
         preTransform = CGAffineTransformRotate(preTransform, - M_PI_2);
+        preTransform = CGAffineTransformTranslate(preTransform, CGRectGetMaxY(rect) - screenHeight, -rect.origin.x);
     }
     else if((o == UIInterfaceOrientationPortrait && statusBarOrientation == UIInterfaceOrientationLandscapeRight) ||
             (o == UIInterfaceOrientationPortraitUpsideDown && statusBarOrientation == UIInterfaceOrientationLandscapeLeft))
     {
-        preTransform = CGAffineTransformTranslate(preTransform, 0, screenHeight);
+        preTransform = CGAffineTransformTranslate(preTransform, 0, rect.size.height);
         preTransform = CGAffineTransformRotate(preTransform, M_PI_2);
-        preTransform = CGAffineTransformTranslate(preTransform, -screenHeight, -screenWidth);
+        preTransform = CGAffineTransformTranslate(preTransform, -CGRectGetMaxY(rect), rect.origin.x - screenWidth);
     }
     else if((o == UIInterfaceOrientationPortrait && statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown) ||
             (o == UIInterfaceOrientationPortraitUpsideDown && statusBarOrientation == UIInterfaceOrientationPortrait))
     {
-        preTransform = CGAffineTransformTranslate(preTransform, 0, screenHeight);
+        preTransform = CGAffineTransformTranslate(preTransform, 0, rect.size.height);
         preTransform = CGAffineTransformRotate(preTransform, - M_PI);
-        preTransform = CGAffineTransformTranslate(preTransform, -screenWidth, 0);
+        preTransform = CGAffineTransformTranslate(preTransform, rect.origin.x - screenWidth, CGRectGetMaxY(rect) - screenHeight);
     }
     //Handle status bar orientation in landscape left and landscape right screen shot
     else if((o == UIInterfaceOrientationLandscapeLeft && statusBarOrientation == UIInterfaceOrientationPortrait) ||
             (o == UIInterfaceOrientationLandscapeRight && statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown))
     {
-        preTransform = CGAffineTransformTranslate(preTransform, 0, screenWidth);
+        preTransform = CGAffineTransformTranslate(preTransform, 0, rect.size.height);
         preTransform = CGAffineTransformRotate(preTransform, M_PI_2);
-        preTransform = CGAffineTransformTranslate(preTransform, -screenWidth, -screenHeight);
+        preTransform = CGAffineTransformTranslate(preTransform, -CGRectGetMaxY(rect), rect.origin.x - screenHeight);
     }
     else if((o == UIInterfaceOrientationLandscapeLeft && statusBarOrientation == UIInterfaceOrientationLandscapeRight) ||
             (o == UIInterfaceOrientationLandscapeRight && statusBarOrientation == UIInterfaceOrientationLandscapeLeft))
     {
-        preTransform = CGAffineTransformTranslate(preTransform, 0, screenWidth);
+        preTransform = CGAffineTransformTranslate(preTransform, 0, rect.size.height);
         preTransform = CGAffineTransformRotate(preTransform, M_PI);
-        preTransform = CGAffineTransformTranslate(preTransform, -screenHeight, 0);
+        preTransform = CGAffineTransformTranslate(preTransform, rect.origin.x - screenHeight, CGRectGetMaxY(rect) - screenWidth);
     }
     else if((o == UIInterfaceOrientationLandscapeLeft && statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown) ||
             (o == UIInterfaceOrientationLandscapeRight && statusBarOrientation == UIInterfaceOrientationPortrait))
     {
-        preTransform = CGAffineTransformTranslate(preTransform, 0, screenWidth);
+        preTransform = CGAffineTransformTranslate(preTransform, 0, rect.size.height);
         preTransform = CGAffineTransformRotate(preTransform, - M_PI_2);
+        preTransform = CGAffineTransformTranslate(preTransform, CGRectGetMaxY(rect) - screenWidth, -rect.origin.x);
     }
     
     // -renderInContext: renders in the coordinate space of the layer,
