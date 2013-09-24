@@ -1,6 +1,6 @@
 #OTScreenshotHelper
 
-Take screenshot on iOS devices with nice interface. Can take status bar. No private API.
+Take screenshot on iOS devices with nice interface. Can snapshot status bar. No private API.
 
 ![screenshot](https://raw.github.com/OpenFibers/OTScreenshotHelper/master/Screenshots/screenshot1.png "screen shot")
 
