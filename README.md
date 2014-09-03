@@ -4,7 +4,7 @@ Take screenshot on iOS devices with nice interface. Can snapshot status bar. No 
 
 ![screenshot](https://raw.github.com/OpenFibers/OTScreenshotHelper/master/Screenshots/screenshot1.png "screen shot")
 
-#Feature
+#Features
 
 * Take screen shot with or without status bar.
 * You can specific a screenshot rect or orientaition.
