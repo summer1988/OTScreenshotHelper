@@ -18,10 +18,7 @@
     // On iOS 4 and later, use UIGraphicsBeginImageContextWithOptions to take the scale into consideration
     // On iOS prior to 4, fall back to use UIGraphicsBeginImageContext
     CGSize imageSize = [view bounds].size;
-    if (NULL != UIGraphicsBeginImageContextWithOptions)
-        UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
-    else
-        UIGraphicsBeginImageContext(imageSize);
+    UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     
@@ -39,7 +36,11 @@
                           -[view bounds].size.height * [[view layer] anchorPoint].y);
     
     // Render the layer hierarchy to the current context
-    [[view layer] renderInContext:context];
+    if ([view respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
+        [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:YES];
+    } else {
+        [view.layer renderInContext:context];
+    }
     
     // Restore the context
     CGContextRestoreGState(context);
@@ -120,16 +121,7 @@
     }
     
     // Create a graphics context with the target size
-    // On iOS 4 and later, use UIGraphicsBeginImageContextWithOptions to take the scale into consideration
-    // On iOS prior to 4, fall back to use UIGraphicsBeginImageContext
-    if (NULL != UIGraphicsBeginImageContextWithOptions)
-    {
-        UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
-    }
-    else
-    {
-        UIGraphicsBeginImageContext(rect.size);
-    }
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     
@@ -157,7 +149,11 @@
             
             
             // Render the layer hierarchy to the current context
-            [[window layer] renderInContext:context];
+            if ([window respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
+                [window drawViewHierarchyInRect:window.bounds afterScreenUpdates:YES];
+            } else {
+                [window.layer renderInContext:context];
+            }
             
             // Restore the context
             CGContextRestoreGState(context);
@@ -266,7 +262,11 @@
                           -[statusBarView bounds].size.height * [[statusBarView layer] anchorPoint].y);
     
     // Render the layer hierarchy to the current context
-    [[statusBarView layer] renderInContext:context];
+    if ([statusBarView respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
+        [statusBarView drawViewHierarchyInRect:statusBarView.bounds afterScreenUpdates:YES];
+    } else {
+        [statusBarView.layer renderInContext:context];
+    }
     
     // Restore the context
     CGContextRestoreGState(context);
