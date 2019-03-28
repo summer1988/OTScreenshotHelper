@@ -9,7 +9,7 @@ Take screenshot on iOS devices with nice interface. Can snapshot status bar. No 
 * Take screen shot with or without status bar.
 * You can specific a screenshot rect or orientaition.
 * Great performance: single graphic context per each screenshot.
-* Supports iOS 4.3 - iOS 7.0, supports SDK6 - SDK7. Using ARC.
+* Supports iOS 4.3 - iOS 12
 * Simple interface:
 
 ```
