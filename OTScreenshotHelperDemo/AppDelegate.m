@@ -23,12 +23,7 @@
     }
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
-    
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGAffineTransform t = CGAffineTransformMakeRotation(M_PI_2 / 3);
-    t = CGAffineTransformScale(t, 0.8, 0.8);
-    self.window.transform = t;
-    self.window.center = CGPointMake(CGRectGetWidth(screenRect) / 2 + 50, CGRectGetHeight(screenRect) / 2 + 40);
+
     return YES;
 }
 
