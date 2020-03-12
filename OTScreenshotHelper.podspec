@@ -1,6 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "OTScreenshotHelper"
   s.version      = "0.0.1"
+  s.summary       = 'ttt.'
   s.homepage     = "https://github.com/summer1988/OTScreenshotHelper.git"
   s.license      = "MIT"
   s.author       = { "xx" => "xx" }
